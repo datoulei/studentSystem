@@ -1,0 +1,33 @@
+/* app css stylesheet */
+body {
+    height: 600px;
+    background-color: #eeeeee;
+    padding-top: 70px;
+    padding-bottom: 30px;
+    overflow: auto;
+}
+.label-morning {
+    background-color: #3366ff;
+}
+.label-afternoon {
+    background-color: #FF9900;
+}
+.label-night {
+    background-color: #333366;
+}
+/*迟到*/
+.label-late {
+    background-color: #0066cc;
+}
+/*早退*/
+.label-early {
+    background-color: #ffcc00;
+}
+/*请假*/
+.label-leave {
+    background-color: #006600;
+}
+/*旷课*/
+.label-absent {
+    background-color: #ff0000;
+}

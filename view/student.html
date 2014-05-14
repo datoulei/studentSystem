@@ -1,0 +1,83 @@
+<div class="container" ng-init="getClassList()">
+    <div class="row">
+        <div class="col-lg-3 col-sm-3">
+            <select class="form-control" ng-model="classObj" ng-options="c.name for c in classList" ng-change="toggleStudentList(classObj)">
+            </select>
+        </div>
+        <div class="col-lg-1 col-sm-1">
+            <button class="btn btn-sm btn-info" ng-show="classObj" ng-click="create()"><span class="glyphicon glyphicon-plus"></span> 添加学生</button>
+        </div>
+        <div class="col-lg-3 col-lg-offset-5 col-sm-3 col-sm-offset-5">
+            <div class="input-group">
+                <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                <input type="text" class="form-control" ng-model="searchText">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>学号</th>
+                    <th>姓名</th>
+                    <th>电话号码1</th>
+                    <th>电话号码2</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="student in studentList | filter:searchText">
+                    <td ng-bind="$index"></td>
+                    <td ng-bind="student.no"></td>
+                    <td ng-bind="student.name"></td>
+                    <td ng-bind="student.tel_1"></td>
+                    <td ng-bind="student.tel_2"></td>
+                    <td>
+                        <button class="btn btn-xs btn-default" ng-click="update($index)"><span class="glyphicon glyphicon-edit"></span> 修改</button>
+                        <button class="btn btn-xs btn-danger" ng-click="delete($index)"><span class="glyphicon glyphicon-trash"></span> 删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">创建新学生</h4>
+                <button type="button" class="btn btn-xs btn-default" ng-hide="oper == 'update'" ng-model="multi" btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">
+                    批量录入模式
+                </button>
+            </div>
+            <div class="modal-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label>学号</label>
+                        <input type="text" ng-model="modal.no" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>姓名</label>
+                        <input type="text" ng-model="modal.name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>电话号码1</label>
+                        <input type="text" ng-model="modal.tel_1" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>电话号码2</label>
+                        <input type="text" ng-model="modal.tel_2" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" ng-click="save()">保存</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

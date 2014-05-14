@@ -1,0 +1,19 @@
+{
+    "app": {
+        "background": {
+            "scripts": ["js/background.js"]
+        }
+    },
+    "manifest_version": 2,
+    "name": "studentManagement",
+    "version": "1.0",
+    "description": "万宁中学学生管理系统",
+    "icons": {},
+    "permissions": [
+        "notifications",
+        "alarms",
+        "storage",
+        "unlimitedStorage",
+        {"fileSystem": ["write", "retainEntries", "directory"]}
+    ]
+}

@@ -1,0 +1,17 @@
+<div class="container" ng-init="queryRecord(currentDate)">
+    <div class="row">
+        <div class="col-sm-12 col-lg-3 col-lg-push-9">
+            <button type="button" class="btn btn-sm btn-default" ng-click="lastWeek()">上周</button>
+            <button type="button" class="btn btn-sm btn-default" ng-click="nextWeek()">下周</button>
+            <button class="btn btn-sm btn-primary" ng-click="export()"><span class="glyphicon glyphicon-export"></span> 导出</button>
+            <!--<tabset>-->
+            <!--<tab heading="tab1">Justified content</tab>-->
+            <!--<tab heading="tab2">Short Labeled Justified content</tab>-->
+            <!--<tab heading="tab3">Long Labeled Justified content</tab>-->
+            <!--</tabset>-->
+        </div>
+        <div class="center-block col-sm-12 col-lg-9 col-lg-pull-3">
+            <div id="chart" class="well well-sm"></div>
+        </div>
+    </div>
+</div>
